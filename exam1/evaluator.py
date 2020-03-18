@@ -99,10 +99,14 @@ def find_common(tuple_a: Tuple, tuple_b: Tuple) -> Set:
     :param tuple_b: The second tuple.
     :return: A set containing items common on both tuples.
     """
-    set = ()
-    combine_tup = tuple_a + tuple_b
-    for i in combine_tup:
-        set(i).add(i)
+    s = set()
+    
+    for i in tuple_a:
+        if i in tuple_b:
+            s.add(i)
+            
+    return s
+            
 
 
 def find_duplicates(tuple_in: Tuple) -> List:
@@ -114,9 +118,15 @@ def find_duplicates(tuple_in: Tuple) -> List:
     """
 
     list1_dup_tup = []
+    count = dict()
     for i in tuple_in:
-        if i not in list1_dup_tup:
+        if i not in count:
+            count[i] = 1
+        else:
+            count[i] += 1
+    
+    for i in count:
+        if count[i] > 1:
             list1_dup_tup.append(i)
-
-
+            
     return list1_dup_tup
