@@ -41,12 +41,12 @@ def find_value(value_to_find, values: C) -> int:
     :return: an integer. Either the index where the value exists or -1
     """
     if value_to_find in values:
-        counter = 0
+        index = 0
         for i in values:
             if i == value_to_find:
-                return counter
+                return index
             else:
-                counter += 1
+                index += 1
     else:
         return -1
 
