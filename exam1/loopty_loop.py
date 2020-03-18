@@ -12,7 +12,11 @@ def generate_list(start: int, stop: int, step: int = 1) -> List[int]:
     """
     listA = []
     for i in range(start, stop, step):
-        return listA.append(i)
+        listA.append(i)
+        
+    return listA
+        
+        
         
 
 
@@ -26,4 +30,8 @@ def generate_list_with_strategy(start: int, stop: int, step: int, strategy: Call
     :param strategy: A function to manipulate each digit .
     :return: A list of integers.
     """
-    pass  # implement me
+    new_list = []
+    for i in range(start, stop, step):
+        new_list.append(strategy(i))
+
+    return new_list
